@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="ObtenerDatos()">
+      <div class="mb-3">
+          <label for="numero" class="form-label">Numero de telefono:</label>
+          <input formControlName="Number" type="text" class="form-control" id="numero" >
+      </div>
+
+      <div class="mb-3">
+          <label for="mensajeTitulo" class="form-label">Titulo:</label>
+          <input formControlName="Title" type="text" class="form-control" id="mensajeTitulo">
+      </div>
+
+      <div class="mb-3">
+          <label for="mensajeText" class="form-label">Mensaje:</label>
+          <textarea formControlName="Message" class="form-control" id="mensajetext" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+          <label for="File" class="form-label">Archivo:</label>
+          <input (change)="ObtenerFile($event)" class="form-control" type="file" id="File">
+      </div>
+
+      <button type="btnenviar" class="btn btn-primary">Enviar</button>
+  </form>
+  </div>
+   
+</body>
+</html>
