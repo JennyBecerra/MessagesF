@@ -6,12 +6,12 @@
 </head>
 <body>
   <div class="container">
-    <form [formGroup]="form" (ngSubmit)="ObtenerDatos()">
+    <form [formGroup]="form" (ngSubmit)="EnviarDatos()">
       <div class="mb-3">
           <label for="numero" class="form-label">Numero de telefono:</label>
           <input formControlName="Number" type="text" class="form-control" id="numero" >
       </div>
-
+    
       <div class="mb-3">
           <label for="mensajeTitulo" class="form-label">Titulo:</label>
           <input formControlName="Title" type="text" class="form-control" id="mensajeTitulo">
@@ -24,10 +24,10 @@
 
       <div class="mb-3">
           <label for="File" class="form-label">Archivo:</label>
-          <input (change)="ObtenerFile($event)" class="form-control" type="file" id="File">
+          <input formControlName="File" (change)="ObtenerFile($event)" accept=".png,.jpg,.pdf,.xml,.zip" class="form-control" type="file" id="File">
       </div>
 
-      <button type="btnenviar" class="btn btn-primary">Enviar</button>
+      <button type="submit" [disabled]="this.form.invalid" class="btn btn-primary">Enviar</button>
   </form>
   </div>
    
