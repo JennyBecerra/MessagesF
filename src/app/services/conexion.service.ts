@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConexionService {
-  myAppUrl ="https://localhost:44385/";
-  myApiUrl ="Body";
+  myAppUrl ="https://localhost:44375/";
+  myApiUrl ="CreateMessage";
   constructor(private http:HttpClient) { }
 
-   postMensaje(data: any): Observable<any>{
+   postMensaje(data:any ): Observable<any>{
       return this.http.post(this.myAppUrl+this.myApiUrl,data);
    }
 }
