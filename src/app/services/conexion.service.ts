@@ -14,9 +14,9 @@ export class ConexionService {
   myApiUrl ="CreateMessage";
   constructor(private http:HttpClient) { }
 
-   postMensaje(data:any ): Observable<any>{
+  postMensaje(data:any ): Observable<any>{
       return this.http.post(this.myAppUrl+this.myApiUrl,data);
-   }
+  }
 
    
 }

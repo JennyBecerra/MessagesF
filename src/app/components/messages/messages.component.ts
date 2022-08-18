@@ -9,7 +9,7 @@ import { ConexionService } from 'src/app/services/conexion.service';
 })
 export class MessagesComponent implements OnInit {
   form: FormGroup;
-  file: any;
+  //file: any;
 
   constructor(private fb: FormBuilder, private _ConexService: ConexionService) {
     this.form = this.fb.group({
@@ -36,7 +36,7 @@ export class MessagesComponent implements OnInit {
     formData.set('Number', this.form.get('Number')?.value);
     formData.set('Title', this.form.get('Title')?.value);
     formData.set('Message', this.form.get('Message')?.value);
-    formData.set('File', this.file);
+    formData.set('File', this.form.get('File')?.value);
 
     this._ConexService.postMensaje(formData).subscribe(
       data => { alert("mensaje enviado") },
@@ -50,11 +50,14 @@ export class MessagesComponent implements OnInit {
     var archivo =event.target.files[0];
     if (archivo.type == 'application/pdf' || archivo.type == 'application/x-zip-compressed' || archivo.type == 'image/jpeg' || archivo.type == 'image/png' || archivo.type == 'text/xml' ) {
 
-      this.file =archivo;
+      this.form.patchValue({
+        File: archivo
+      });
 
     }else{
       console.log( archivo.type);
     }
+
 }
 
   
